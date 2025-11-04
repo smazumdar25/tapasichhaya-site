@@ -1,0 +1,120 @@
+/* Base theme */
+:root {
+  --brand: #6c63ff;
+  --brand-2: #00c2a8;
+  --ink: #0f172a;            /* slate-900 */
+  --muted: #6b7280;          /* gray-500 */
+  --bg: #ffffff;
+  --hero-wave: #ffffff;
+}
+
+* { box-sizing: border-box; }
+
+html, body { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, 'Apple Color Emoji', 'Segoe UI Emoji';
+  color: var(--ink);
+  background: var(--bg);
+}
+
+/* Utilities */
+.py-6 { padding-top: 4.5rem; padding-bottom: 4.5rem; }
+.lh-tight { line-height: 1.1; }
+.fw-extrabold { font-weight: 800; }
+
+.text-gradient {
+  background: linear-gradient(90deg, var(--brand), var(--brand-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.icon-lg {
+  font-size: 1.75rem;
+  line-height: 1;
+  width: 2.75rem;
+  height: 2.75rem;
+  display: grid;
+  place-items: center;
+  border-radius: .75rem;
+  background: color-mix(in srgb, var(--brand) 15%, white);
+  color: color-mix(in srgb, var(--brand) 95%, black);
+}
+
+/* Navbar */
+#mainNav.navbar {
+  transition: background .25s ease, box-shadow .25s ease, backdrop-filter .25s ease;
+  backdrop-filter: saturate(180%) blur(8px);
+}
+#mainNav.scrolled {
+  background: rgba(255,255,255,.85) !important;
+  box-shadow: 0 .25rem 1.25rem rgba(15,23,42,.08);
+}
+
+/* Hero */
+.hero {
+  padding-top: 5.5rem;
+  background:
+    radial-gradient(1200px 600px at -10% -10%, color-mix(in srgb, var(--brand) 20%, transparent), transparent 60%),
+    radial-gradient(1000px 600px at 110% 0%, color-mix(in srgb, var(--brand-2) 18%, transparent), transparent 60%);
+}
+.hero .hero-mockup {
+  border: 1px solid rgba(15,23,42,.08);
+  background: #0b1020;
+}
+.hero .hero-wave {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 90px;
+}
+
+/* Cards */
+.card-hover { transition: transform .2s ease, box-shadow .2s ease; }
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 .75rem 2rem rgba(15,23,42,.12);
+}
+.feature-card .card-body { padding: 1.25rem 1.25rem 1.5rem; }
+
+/* Pricing */
+.pricing-popular { border-width: 2px !important; }
+
+/* Back to top */
+.back-to-top {
+  position: fixed;
+  right: 1rem;
+  bottom: 1rem;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all .2s ease;
+}
+.back-to-top.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* Footer */
+footer .nav-link { opacity: .9; }
+footer .nav-link:hover { opacity: 1; }
+
+/* Small tweaks */
+@media (max-width: 991.98px) {
+  .hero { padding-top: 5rem; }
+}
+/* Navbar brand logo */
+.brand-logo {
+  height: 44px;       /* desktop */
+  width: 44px;        /* keeps it perfectly round */
+  border-radius: 50%; /* round shape */
+  object-fit: cover;  /* tidy crop just in case */
+}
+
+@media (max-width: 991.98px) {
+  .brand-logo { height: 36px; width: 36px; }
+}
+ 
